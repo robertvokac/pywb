@@ -36,9 +36,9 @@ application = simpleapp()
 
 if __name__ == "__main__":
 #    from bottle import run
-#    run(application, server='gevent', port=8080, fast=True)
+#    run(application, server='gevent', port=8087, fast=True)
 
     from gevent.wsgi import WSGIServer
-    server = WSGIServer(('', 8080), application)
+    server = WSGIServer(('', 8087), application)
     server.serve_forever()
 

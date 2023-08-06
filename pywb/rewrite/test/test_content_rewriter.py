@@ -58,7 +58,7 @@ class TestContentRewriter(object):
                                          warc_headers_dict=warc_headers)
 
     def rewrite_record(self, headers, content, ts, url='http://example.com/',
-                       prefix='http://localhost:8080/prefix/', warc_headers=None,
+                       prefix='http://localhost:8087/prefix/', warc_headers=None,
                        request_url=None, is_live=None, use_js_proxy=True, environ=None):
 
         record = self._create_response_record(url, headers, content, warc_headers)
@@ -102,7 +102,7 @@ class TestContentRewriter(object):
         else:
             exp_rw = True
             exp_ct = ('Content-Type', 'text/html')
-            exp = '<html><body><a href="http://localhost:8080/prefix/201701/http://example.com/"></a></body></html>'
+            exp = '<html><body><a href="http://localhost:8087/prefix/201701/http://example.com/"></a></body></html>'
 
         assert exp_ct in headers.headers
         assert is_rw == exp_rw
@@ -114,7 +114,7 @@ class TestContentRewriter(object):
 
         headers, gen, is_rw = self.rewrite_record(headers, content, ts='201701mp_')
 
-        exp = '<html><body><a href="http://localhost:8080/prefix/201701/http://example.com/"></a></body></html>'
+        exp = '<html><body><a href="http://localhost:8087/prefix/201701/http://example.com/"></a></body></html>'
         assert is_rw
         assert ('Content-Type', 'text/html; charset=UTF-8') in headers.headers
         assert b''.join(gen).decode('utf-8') == exp
@@ -136,7 +136,7 @@ class TestContentRewriter(object):
 
         headers, gen, is_rw = self.rewrite_record(headers, content, ts='201701mp_')
 
-        exp = '<html><body><a href="http://localhost:8080/prefix/201701/http://%C3%A9xample.com/t%C3%A9st%C3%A9"></a></body></html>'
+        exp = '<html><body><a href="http://localhost:8087/prefix/201701/http://%C3%A9xample.com/t%C3%A9st%C3%A9"></a></body></html>'
         assert is_rw
         assert ('Content-Type', 'text/html; charset=utf-8') in headers.headers
         assert b''.join(gen).decode('utf-8') == exp
@@ -147,7 +147,7 @@ class TestContentRewriter(object):
 
         headers, gen, is_rw = self.rewrite_record(headers, content, ts='201701mp_')
 
-        exp = '\ufeff\ufeff\ufeff<!DOCTYPE html>\n<head>\n<a href="http://localhost:8080/prefix/201701/http://example.com"></a></body></html>'
+        exp = '\ufeff\ufeff\ufeff<!DOCTYPE html>\n<head>\n<a href="http://localhost:8087/prefix/201701/http://example.com"></a></body></html>'
         assert is_rw
         assert ('Content-Type', 'text/html') in headers.headers
         assert b''.join(gen).decode('utf-8') == exp
@@ -169,7 +169,7 @@ class TestContentRewriter(object):
 
         headers, gen, is_rw = self.rewrite_record(headers, content, ts='201701mp_')
 
-        exp = '<html><body><a href="http://localhost:8080/prefix/201701/http://%C3%A9xample.com/t%C3%A9st%C3%A9"></a></body></html>'
+        exp = '<html><body><a href="http://localhost:8087/prefix/201701/http://%C3%A9xample.com/t%C3%A9st%C3%A9"></a></body></html>'
         assert is_rw
         assert ('Content-Type', 'text/html; charset=latin-1') in headers.headers
         assert b''.join(gen).decode('latin-1') == exp
@@ -192,7 +192,7 @@ class TestContentRewriter(object):
 
         assert ('Content-Type', 'text/html') in headers.headers
 
-        exp = '<html><body><a href="http://localhost:8080/prefix/201701/http://example.com/"></a></body></html>'
+        exp = '<html><body><a href="http://localhost:8087/prefix/201701/http://example.com/"></a></body></html>'
 
         result = b''.join(gen).decode('utf-8')
         assert exp == result
@@ -223,13 +223,13 @@ class TestContentRewriter(object):
         assert exp in result
 
     def test_rewrite_cs_mod(self, headers):
-        content = '.foo { background: url(http://localhost:8080/prefix/201701cs_/http://example.com/) }'
+        content = '.foo { background: url(http://localhost:8087/prefix/201701cs_/http://example.com/) }'
 
         headers, gen, is_rw = self.rewrite_record(headers, content, ts='201701cs_')
 
         assert ('Content-Type', 'text/css') in headers.headers
 
-        exp = '.foo { background: url(http://localhost:8080/prefix/201701cs_/http://example.com/) }'
+        exp = '.foo { background: url(http://localhost:8087/prefix/201701cs_/http://example.com/) }'
 
         assert b''.join(gen).decode('utf-8') == exp
 
@@ -251,7 +251,7 @@ class TestContentRewriter(object):
         headers, gen, is_rw = self.rewrite_record(headers, content, ts='201701sw_')
 
         assert ('Content-Type', 'application/x-javascript') in headers.headers
-        assert ('Service-Worker-Allowed', 'http://localhost:8080/prefix/201701mp_/http://example.com/') in headers.headers
+        assert ('Service-Worker-Allowed', 'http://localhost:8087/prefix/201701mp_/http://example.com/') in headers.headers
 
         assert "self.importScripts('wombatWorkers.js');" in b''.join(gen).decode('utf-8')
 
@@ -554,7 +554,7 @@ jsonpCallbackABCDEF({"foo": "bar"});"""
         frame's src url is rewritten with the **fr_** rewrite modifier, is content to be rewritten
         """
         headers = {'Content-Type': 'text/html; charset=UTF-8'}
-        prefix = 'http://localhost:8080/live/'
+        prefix = 'http://localhost:8087/live/'
         dt = '20190205180554%s'
         content = '<!DOCTYPE html><head><link rel="icon" href="http://r-u-ins.tumblr.com/img/favicon/72.png" ' \
                   'type="image/x-icon"></head>'

@@ -38,7 +38,7 @@ The pywb tool suite currently includes several runnable applications, installed
 as command-line scripts via setuptools, including:
 
 
--  ``wayback`` -- start the full wayback on port 8080
+-  ``wayback`` -- start the full wayback on port 8087
 
 -  ``cdx-server`` -- start standalone cdx server on port 8090
 
@@ -60,7 +60,7 @@ To start a pywb with bundled sample data:
 
 OR run ``run-uwsgi.sh`` or ``run-gunicorn.sh`` to start with uWSGI or gunicorn (see below for more info).
 
-4. Test pywb in your browser! (pywb is set to run on port 8080 by
+4. Test pywb in your browser! (pywb is set to run on port 8087 by
    default).
 
 If everything worked, the following pages should be loading (served from
@@ -69,9 +69,9 @@ If everything worked, the following pages should be loading (served from
 +------------------------+----------------------------------------+--------------------------------------------+
 | Original Url           | Latest Capture                         | List of All Captures                       | 
 +========================+========================================+============================================+
-| ``http://example.com`` | http://localhost:8080/pywb/example.com | http://localhost:8080/pywb/\*/example.com  |
+| ``http://example.com`` | http://localhost:8087/pywb/example.com | http://localhost:8087/pywb/\*/example.com  |
 +------------------------+----------------------------------------+--------------------------------------------+
-| ``http://iana.org``    | http://localhost:8080/pywb/iana.org    | http://localhost:8080/pywb/\*/iana.org     |
+| ``http://iana.org``    | http://localhost:8087/pywb/iana.org    | http://localhost:8087/pywb/\*/iana.org     |
 +------------------------+----------------------------------------+--------------------------------------------+
 
 uWSGI and gunicorn startup scripts

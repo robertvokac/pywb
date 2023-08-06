@@ -103,7 +103,7 @@ Collection Page Template
 
 File: ``search.html``
 
-The 'collection page' template is the page rendered when no URL is specified, e.g. ``http://localhost:8080/my-collection/``.
+The 'collection page' template is the page rendered when no URL is specified, e.g. ``http://localhost:8087/my-collection/``.
 
 The default template renders a search page that can be used to start searching for URLs.
 
@@ -147,17 +147,17 @@ File: ``query.html``
 
 This template is rendered for any URL search response pages, either a single URL or more complex queries.
 
-For example, the page ``http://localhost:8080/my-collection/*/https://example.com/`` will be rendered using this template, with functionality provided by a Vue application.
+For example, the page ``http://localhost:8087/my-collection/*/https://example.com/`` will be rendered using this template, with functionality provided by a Vue application.
 
 Template variables:
 
 * ``{{ url }}`` - the URL being queried, e.g. ``https://example.com/``
 
-* ``{{ prefix }}`` - the collection prefix that will be used for replay, e.g. ``http://localhost:8080/my-collection/``
+* ``{{ prefix }}`` - the collection prefix that will be used for replay, e.g. ``http://localhost:8087/my-collection/``
 
 * ``{{ ui }}`` - an optional ``ui`` dictionary from ``config.yaml``, if any
 
-* ``{{ static_prefix }}`` - the prefix from which static files will be accessed from, e.g. ``http://localhost:8080/static/``.
+* ``{{ static_prefix }}`` - the prefix from which static files will be accessed from, e.g. ``http://localhost:8087/static/``.
 
 
 Replay and Banner Templates
@@ -177,13 +177,13 @@ Template variables:
 
 * ``{{ url }}`` - the URL being replayed.
 
-* ``{{ timestamp }}`` - the timestamp being replayed, e.g. ``20211226`` in ``http://localhost:8080/pywb/20211226/mp_/https://example.com/``
+* ``{{ timestamp }}`` - the timestamp being replayed, e.g. ``20211226`` in ``http://localhost:8087/pywb/20211226/mp_/https://example.com/``
 
 * ``{{ is_framed }}`` - true/false if currently in framed mode.
 
-* ``{{ wb_prefix }}`` - the collection prefix, e.g. ``http://localhost:8080/pywb/``
+* ``{{ wb_prefix }}`` - the collection prefix, e.g. ``http://localhost:8087/pywb/``
 
-* ``{{ host_prefix }}`` - the pywb server origin, e.g. ``http://localhost:8080``
+* ``{{ host_prefix }}`` - the pywb server origin, e.g. ``http://localhost:8087``
 
 * ``{{ config }}`` - provides the contents of the ``config.yaml`` as a dictionary.
 
@@ -234,11 +234,11 @@ Template variables:
 
 * ``{{ url }}`` - the URL being replayed.
 
-* ``{{ timestamp }}`` - the timestamp being replayed, e.g. ``20211226`` in ``http://localhost:8080/pywb/20211226/mp_/https://example.com/``
+* ``{{ timestamp }}`` - the timestamp being replayed, e.g. ``20211226`` in ``http://localhost:8087/pywb/20211226/mp_/https://example.com/``
 
 * ``{{ wb_url }}`` - A complete ``WbUrl`` object, which contains the ``url``, ``timestamp`` and ``mod`` properties, representing the replay url.
 
-* ``{{ wb_prefix }}`` - the collection prefix, e.g. ``http://localhost:8080/pywb/``
+* ``{{ wb_prefix }}`` - the collection prefix, e.g. ``http://localhost:8087/pywb/``
 
 * ``{{ is_proxy }}`` - set to true if page is being loaded via an HTTP/S proxy (checks if WSGI env has ``wsgiprox.proxy_host`` set)
 

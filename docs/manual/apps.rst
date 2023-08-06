@@ -78,7 +78,7 @@ No rewriting or recording is performed by the Warcserver, but all collections fr
 
 The main pywb application is installed as the ``wayback`` application. (The ``pywb`` name is the same application, may become the primary name in future versions).
 
-The app will start on port ``8080`` by default, and configuration is read from ``config.yaml``
+The app will start on port ``8087`` by default, and configuration is read from ``config.yaml``
 
 See :ref:`configuring-pywb` for a detailed overview of configuration options and customizations.
 

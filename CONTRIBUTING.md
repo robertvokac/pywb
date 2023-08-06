@@ -38,7 +38,7 @@ If no such issue already exists, feel free to [open a new issue](https://github.
 
 The [pywb documentation](https://pywb.readthedocs.io/en/latest/) contains information on pywb's architecture, configuration file, and how to get started with the software locally or in a Docker container.
 
-The project root directory contains a basic [Docker Compose](https://docs.docker.com/compose/) configuration file, which can be used to easily start a development environment. After installing Docker Desktop and Docker Compose (if not installed with Desktop), to run pywb in detached mode on `localhost:8080`, run:
+The project root directory contains a basic [Docker Compose](https://docs.docker.com/compose/) configuration file, which can be used to easily start a development environment. After installing Docker Desktop and Docker Compose (if not installed with Desktop), to run pywb in detached mode on `localhost:8087`, run:
 
 ```bash
 docker compose up -d

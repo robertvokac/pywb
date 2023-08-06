@@ -883,5 +883,5 @@ class MetadataCache(object):
 
 # ============================================================================
 if __name__ == "__main__":
-    app_server = FrontEndApp.create_app(port=8080)
+    app_server = FrontEndApp.create_app(port=8087)
     app_server.join()

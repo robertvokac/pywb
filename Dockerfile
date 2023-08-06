@@ -27,7 +27,7 @@ COPY docker-entrypoint.sh ./
 
 # volume and port
 VOLUME /webarchive
-EXPOSE 8080
+EXPOSE 8087
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["uwsgi", "/uwsgi/uwsgi.ini"]

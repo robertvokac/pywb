@@ -23,7 +23,7 @@ def warcserver(args=None):
 def wayback(args=None):
     """Utility function for starting pywb's Wayback Machine implementation"""
     return WaybackCli(args=args,
-                      default_port=8080,
+                      default_port=8087,
                       desc='pywb Wayback Machine Server').run()
 
 
@@ -40,7 +40,7 @@ class BaseCli(object):
     """Base CLI class that provides the initial arg parser setup,
     calls load to receive the application to be started and starts the application."""
 
-    def __init__(self, args=None, default_port=8080, desc=''):
+    def __init__(self, args=None, default_port=8087, desc=''):
         """
         :param args: CLI arguments
         :param int default_port: The default port that the application will use

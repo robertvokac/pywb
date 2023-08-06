@@ -31,10 +31,10 @@ Static Files
 
 pywb will automatically support static files placed under the following directories:
 
-* Files under the root ``static`` directory: ``static/my-file.js`` can be accessed via ``http://localhost:8080/static/my-file.js``
+* Files under the root ``static`` directory: ``static/my-file.js`` can be accessed via ``http://localhost:8087/static/my-file.js``
 
 
-* Files under the per-collection directory: ``./collections/my-coll/static/my-file.js`` can be accessed via ``http://localhost:8080/static/_/my-coll/my-file.js``
+* Files under the per-collection directory: ``./collections/my-coll/static/my-file.js`` can be accessed via ``http://localhost:8087/static/_/my-coll/my-file.js``
 
 
 It is possible to change these settings via ``config.yaml``:
@@ -85,7 +85,7 @@ This can be done simply by including something like:
      <head>
        <body>
          <div>Embedding pywb replay</div>
-         <iframe style="width: 100%; height: 100%" src="http://localhost:8080/pywb/20130729195151/http://test@example.com/"></iframe>
+         <iframe style="width: 100%; height: 100%" src="http://localhost:8087/pywb/20130729195151/http://test@example.com/"></iframe>
       </body>
    </html>
 

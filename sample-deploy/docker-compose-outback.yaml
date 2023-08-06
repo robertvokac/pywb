@@ -5,7 +5,7 @@ services:
   outbackcdx:
     image: nlagovau/outbackcdx
     ports:
-        - 8084:8080
+        - 8084:8087
 
   # use cdx-indexer to index and ingest into outbackcdx
   ingest:
@@ -29,7 +29,7 @@ services:
         - ../sample_archive/:/webarchive/sample_archive/
 
     ports:
-        - 8080:8080
+        - 8087:8087
 
     depends_on:
         - ingest

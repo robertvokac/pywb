@@ -29,8 +29,8 @@ multiple collections in a single response.
 The Timemap API is implemented as a subset of the :ref:`cdx-server-api` and should produce the same result as the equivalent CDX server query.
 
 For example, the timemap query:
-``http://localhost:8080/pywb/timemap/link/http://example.com/`` is equivalent to the CDX server query:
-``http://localhost:8080/pywb/cdx?url=http://example.com/&output=link``
+``http://localhost:8087/pywb/timemap/link/http://example.com/`` is equivalent to the CDX server query:
+``http://localhost:8087/pywb/cdx?url=http://example.com/&output=link``
 
 
 TimeGate API

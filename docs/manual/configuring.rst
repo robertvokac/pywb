@@ -194,14 +194,14 @@ Collection Provenance
 When using the auto-all collection, it is possible to determine the original collection of each resource by looking at the ``Link`` header metadata
 if :ref:`memento-api` is enabled. The header will include the extra ``collection`` field, specifying the collection::
 
-  Link: <http://example.com/>; rel="original", <http://localhost:8080/all/mp_/http://example.com/>; rel="timegate", <http://localhost:8080/all/timemap/link/http://example.com/>; rel="timemap"; type="application/link-format", <http://localhost:8080/all/20170920185327mp_/http://example.com/>; rel="memento"; datetime="Wed, 20 Sep 2017 18:20:19 GMT"; collection="coll-1"
+  Link: <http://example.com/>; rel="original", <http://localhost:8087/all/mp_/http://example.com/>; rel="timegate", <http://localhost:8087/all/timemap/link/http://example.com/>; rel="timemap"; type="application/link-format", <http://localhost:8087/all/20170920185327mp_/http://example.com/>; rel="memento"; datetime="Wed, 20 Sep 2017 18:20:19 GMT"; collection="coll-1"
 
 
 For example, if two collections ``coll-1`` and ``coll-2`` contain ``http://example.com/``, loading the timemap for
 ``/all/timemap/link/http://example.com/`` might look like as follows::
 
-  <http://localhost:8080/all/timemap/link/http://example.com/>; rel="self"; type="application/link-format"; from="Wed, 20 Sep 2017 03:53:27 GMT",
-  <http://localhost:8080/all/mp_/http://example.com/>; rel="timegate",
+  <http://localhost:8087/all/timemap/link/http://example.com/>; rel="self"; type="application/link-format"; from="Wed, 20 Sep 2017 03:53:27 GMT",
+  <http://localhost:8087/all/mp_/http://example.com/>; rel="timegate",
   <http://example.com/>; rel="original",
   <http://example.com/>; rel="memento"; datetime="Wed, 20 Sep 2017 03:53:27 GMT"; collection="coll-1",
   <http://example.com/>; rel="memento"; datetime="Wed, 20 Sep 2017 04:53:27 GMT"; collection="coll-2",
@@ -365,7 +365,7 @@ To add a custom resources, simply call ``PUT /<coll>/record`` with the data to b
 
 For example, adding a custom record ``file:///my-custom-resource`` containing ``Some Custom Data`` can be done using ``curl`` as follows::
 
-  curl -XPUT "localhost:8080/my-web-archive/record?url=file:///my-custom-resource" --data "Some Custom Data"
+  curl -XPUT "localhost:8087/my-web-archive/record?url=file:///my-custom-resource" --data "Some Custom Data"
 
 
 This feature is only available if ``enable_put_custom_record: true`` is set in the recorder config.
@@ -441,7 +441,7 @@ HTTP/S Proxy Mode
 In addition to "url rewriting prefix mode" (the default), pywb can also act as a full-fledged HTTP and HTTPS proxy, allowing
 any browser or client supporting HTTP and HTTPS proxy to access web archives through the proxy.
 
-Proxy mode can provide access to a single collection at time, eg. instead of accessing ``http://localhost:8080/my-coll/2017/http://example.com/``,
+Proxy mode can provide access to a single collection at time, eg. instead of accessing ``http://localhost:8087/my-coll/2017/http://example.com/``,
 the user enters ``http://example.com/`` and is served content from the ``my-coll`` collection.
 As a result, the collection and timestamp must be specified separately.
 
@@ -455,7 +455,7 @@ To enable proxy mode, the collection can be specified by running: ``wayback --pr
   proxy:
     coll: my-coll
 
-For HTTP proxy access, this is all that is needed to use the proxy. If pywb is running on port 8080 on localhost, the following curl command should provide proxy access: ``curl -x "localhost:8080"  http://example.com/``
+For HTTP proxy access, this is all that is needed to use the proxy. If pywb is running on port 8087 on localhost, the following curl command should provide proxy access: ``curl -x "localhost:8087"  http://example.com/``
 
 
 Default Timestamp
@@ -547,7 +547,7 @@ using the special download paths. Recommended set up for using the proxy is as f
 
    (The CA root certificate will be auto-created when first starting pywb with proxy mode if it doesn't exist.)
 
-2. Configure the browser proxy settings host port, for example ``localhost`` and ``8080`` (if running locally)
+2. Configure the browser proxy settings host port, for example ``localhost`` and ``8087`` (if running locally)
 
 3. Download the CA:
 

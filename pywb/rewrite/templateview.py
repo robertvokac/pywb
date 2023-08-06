@@ -345,9 +345,9 @@ class HeadInsertView(BaseInsertView):
         """Create the function used to render the header insert template for the current request.
 
         :param rewrite.wburl.WbUrl wb_url: The WbUrl for the request this template is being rendered for
-        :param str wb_prefix: The URL prefix pywb is serving the content using (e.g. http://localhost:8080/live/)
-        :param str host_prefix: The host URL prefix pywb is running on (e.g. http://localhost:8080)
-        :param str top_url: The full URL for this request (e.g. http://localhost:8080/live/http://example.com)
+        :param str wb_prefix: The URL prefix pywb is serving the content using (e.g. http://localhost:8087/live/)
+        :param str host_prefix: The host URL prefix pywb is running on (e.g. http://localhost:8087)
+        :param str top_url: The full URL for this request (e.g. http://localhost:8087/live/http://example.com)
         :param dict env: The WSGI environment dictionary for this request
         :param bool is_framed: Is pywb or a specific collection running in framed mode
         :param str coll: The name of the collection this request is associated with
@@ -392,8 +392,8 @@ class TopFrameView(BaseInsertView):
                       extra_params=None):
         """
         :param rewrite.wburl.WbUrl wb_url: The WbUrl for the request this template is being rendered for
-        :param str wb_prefix: The URL prefix pywb is serving the content using (e.g. http://localhost:8080/live/)
-        :param str host_prefix: The host URL prefix pywb is running on (e.g. http://localhost:8080)
+        :param str wb_prefix: The URL prefix pywb is serving the content using (e.g. http://localhost:8087/live/)
+        :param str host_prefix: The host URL prefix pywb is running on (e.g. http://localhost:8087)
         :param dict env: The WSGI environment dictionary for the request this template is being rendered for
         :param str frame_mod:  The modifier to be used for framing (e.g. if_)
         :param str replay_mod: The modifier to be used in the URL of the page being replayed (e.g. mp_)

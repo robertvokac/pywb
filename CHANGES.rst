@@ -946,7 +946,7 @@ pywb 0.10.9.1 changelist
 pywb 0.10.9 changelist
 ~~~~~~~~~~~~~~~~~~~~~~
 
-* IPProxyResolver: Support new simple proxy resolver where collection and timestamp stored in server-side cache by IP and set via a rest api through `pywb.proxy` eg: ``curl -x "localhost:8080" http://pywb.proxy/set?ts=2015&coll=all``. No cookies or proxy auth needed in this mode. Useful for Docker-based deployments where virtual IP is fixed. Enabled with ``cookie_resolver: ip`` in ``proxy_options``.
+* IPProxyResolver: Support new simple proxy resolver where collection and timestamp stored in server-side cache by IP and set via a rest api through `pywb.proxy` eg: ``curl -x "localhost:8087" http://pywb.proxy/set?ts=2015&coll=all``. No cookies or proxy auth needed in this mode. Useful for Docker-based deployments where virtual IP is fixed. Enabled with ``cookie_resolver: ip`` in ``proxy_options``.
 
 * CDX Server: Add support for timestamp-bounded queries CDX queries ``from=`` and ``to=``, also support calendar query with (inclusive) ranges, eg. ``/2010-2015/example.com``, ``/2010-/example.com/``, ``/-2015/example.com/``.
 
@@ -954,7 +954,7 @@ pywb 0.10.9 changelist
 
 * Proxy and Video: When in proxy mode, load youtube-dl video info via proxy magic host `pywb.proxy`, and ensure CORS support.
 
-* Rewrite: ensure ``<base>`` tag has trailing slash, or add ``<base>`` with trailing slash for host-name only urls, eg: ``http://localhost:8080/example.com``
+* Rewrite: ensure ``<base>`` tag has trailing slash, or add ``<base>`` with trailing slash for host-name only urls, eg: ``http://localhost:8087/example.com``
 
 * Rules: improved blogspot nav and yt rules, rule file cleanup
 
@@ -1336,7 +1336,7 @@ pywb 0.8.3 changelist
 
 * html rewrite: fix ``<base>`` tag rewriting to add a trailing slash to the url if it is a hostname with no path, ex:
 
-  ``<base href="http://example.com" />`` -> ``<base href="http://localhost:8080/rewrite/http://example.com/" />``
+  ``<base href="http://example.com" />`` -> ``<base href="http://localhost:8087/rewrite/http://example.com/" />``
 
 * framed replay: fix double slash that remainded when rewriting top frame url.
 
@@ -1709,12 +1709,12 @@ pywb 0.3.0 changelist
 * Generate cdx indexs via command-line `cdx-indexer` script. Optionally sorting, and output to either a single combined file or a file per-directory.
   Refer to ``cdx-indexer -h`` for more info.
 
-* Initial support for prefix url queries, eg: http://localhost:8080/pywb/\*/http://example.com\* to query all captures from http://example.com
+* Initial support for prefix url queries, eg: http://localhost:8087/pywb/\*/http://example.com\* to query all captures from http://example.com
 
 * Support for optional LXML html-based parser for fastest possible parsing. If lxml is installed on the system and via ``pip install lxml``, lxml parser is enabled by default.
   (This can be turned off by setting ``use_lxml_parser: false`` in the config)
 
-* Full support for `Memento Protocol RFC7089 <http://www.mementoweb.org/guide/rfc/>`_ Memento, TimeGate and TimeMaps. Memento: TimeMaps in ``application/link-format`` provided via the ``/timemap/*/`` query.. eg: http://localhost:8080/pywb/timemap/\*/http://example.com
+* Full support for `Memento Protocol RFC7089 <http://www.mementoweb.org/guide/rfc/>`_ Memento, TimeGate and TimeMaps. Memento: TimeMaps in ``application/link-format`` provided via the ``/timemap/*/`` query.. eg: http://localhost:8087/pywb/timemap/\*/http://example.com
 
 * pywb now features new `domain-specific rules <https://github.com/ikreymer/pywb/blob/master/pywb/rules.yaml>`_ which are applied to resolve and render certain difficult and dynamic content, in order to make accurate web replay work.
   This ruleset will be under further iteration to address further challenges as the web evoles.

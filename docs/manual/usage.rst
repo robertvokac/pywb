@@ -56,7 +56,7 @@ For example, to install pywb and create a new collection "my-web-archive" in ``.
       wb-manager add my-web-archive <path/to/my_warc.warc.gz>
       wayback
 
-Point your browser to ``http://localhost:8080/my-web-archive/<url>/`` where ``<url>`` is a url you recorded before into your WARC/ARC file. 
+Point your browser to ``http://localhost:8087/my-web-archive/<url>/`` where ``<url>`` is a url you recorded before into your WARC/ARC file. 
 
 If all worked well, you should see your archived version of ``<url>``. Congrats, you are now running your own web archive!
 
@@ -96,13 +96,13 @@ add the WARC to a new collection and start pywb:
       docker pull webrecorder/pywb
       docker run -e INIT_COLLECTION=my-web-archive -v /pywb-data:/webarchive \
          -v /path/to:/source webrecorder/pywb wb-manager add my-web-archive /source/my_warc.warc.gz
-      docker run -p 8080:8080 -v /pywb-data/:/webarchive webrecorder/pywb wayback
+      docker run -p 8087:8087 -v /pywb-data/:/webarchive webrecorder/pywb wayback
 
 This example is equivalent to the non-Docker example above.
 
 Setting ``INIT_COLLECTION=my-web-archive`` results in automatic collection initializiation via ``wb-manager init my-web-archive``.
 
-The ``wayback`` command is launched on port 8080 and mapped to the same on the local host.
+The ``wayback`` command is launched on port 8087 and mapped to the same on the local host.
 
 If the ``wayback`` command is not specified, the Docker container launches with the ``uwsgi`` server recommended for production deployment.
 See :ref:`deployment` for more info.
@@ -172,12 +172,12 @@ done by directly recording into your pywb collection:
 
 1. Create a collection: ``wb-manager init my-web-archive`` (if you haven't already created a web archive collection)
 2. Run: ``wayback --record --live -a --auto-interval 10``
-3. Point your browser to ``http://localhost:8080/my-web-archive/record/<url>``
+3. Point your browser to ``http://localhost:8087/my-web-archive/record/<url>``
 
-For example, to record ``http://example.com/``, visit ``http://localhost:8080/my-web-archive/record/http://example.com/``
+For example, to record ``http://example.com/``, visit ``http://localhost:8087/my-web-archive/record/http://example.com/``
 
 In this configuration, the indexing happens every 10 seconds.. After 10 seconds, the recorded url will be accessible for replay, eg:
-``http://localhost:8080/my-web-archive/http://example.com/``
+``http://localhost:8087/my-web-archive/http://example.com/``
 
 
 HTTP/S Proxy Mode Access
@@ -190,7 +190,7 @@ At this time, a single collection for proxy mode access can be specified with th
 
 For example, ``wayback --proxy my-web-archive`` will start pywb and enable proxy mode access.
 
-You can then configure a browser to Proxy Settings host port to: ``localhost:8080`` and then loading any url, eg. ``http://example.com/`` should
+You can then configure a browser to Proxy Settings host port to: ``localhost:8087`` and then loading any url, eg. ``http://example.com/`` should
 load the latest copy from the ``my-web-archive`` collection.
 
 See :ref:`https-proxy` section for additional configuration details.
@@ -233,7 +233,7 @@ The following will run pywb in Docker directly on port 80:
 
 .. code:: console
 
-      docker run -p 80:8080 -v /webarchive-data/:/webarchive webrecorder/pywb
+      docker run -p 80:8087 -v /webarchive-data/:/webarchive webrecorder/pywb
 
 To run pywb in Docker behind a local nginx (as shown below), port 8081 should also be mapped:
 

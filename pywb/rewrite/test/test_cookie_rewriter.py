@@ -75,13 +75,13 @@ import pytest
 import sys
 
 urlrewriter = UrlRewriter('20131226101010/http://example.com/some/path/index.html',
-                          'http://localhost:8080/pywb/',
+                          'http://localhost:8087/pywb/',
                           rel_prefix='/pywb/')
 
 urlrewriter2 = UrlRewriter('em_/http://example.com/', '/preview/')
 urlrewriter2.rewrite_opts['is_live'] = True
 
-urlrewriter3 = UrlRewriter('em_/http://example.com/', 'https://localhost:8080/preview/')
+urlrewriter3 = UrlRewriter('em_/http://example.com/', 'https://localhost:8087/preview/')
 
 
 def rewrite_cookie(cookie_str, rewriter=urlrewriter, scope='default'):

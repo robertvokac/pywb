@@ -13,7 +13,7 @@ can be accessed by their name as the subpath:
         another-collection:
             ...
 
-If pywb is deployed on port 8080, each collection will be available under:
+If pywb is deployed on port 8087, each collection will be available under:
 ``http://<hostname>/wayback/*/https://example.com/`` and ``http://<hostname>/another-collection/*/https://example.com/``
 
 To make a collection available under the root, simply set its name to: ``$root``
@@ -63,7 +63,7 @@ The examples are available in the ``sample-deploy`` directory of the pywb repo. 
  - ``docker-compose-apache.yaml`` -- Docker Compose config to launch pywb and latest Apache, with pywb running on subdirectory ``/wayback`` and Apache serving static files from pywb.
 
 
-The examples are designed to be run one at a time, and assume port 8080 is available.
+The examples are designed to be run one at a time, and assume port 8087 is available.
 
 After installing Docker and Docker Compose, run either of:
 
@@ -73,7 +73,7 @@ After installing Docker and Docker Compose, run either of:
 
 This will download the standard Docker images and start all of the components in Docker.
 
-If everything works correctly, you should be able to access: ``http://localhost:8080/pywb/https://example.com/`` to view the sample pywb collection.
+If everything works correctly, you should be able to access: ``http://localhost:8087/pywb/https://example.com/`` to view the sample pywb collection.
 
 Press CTRL+C to interrupt and stop the example in the console.
 

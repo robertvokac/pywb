@@ -25,7 +25,7 @@ the pywb server instead of the live web. Typically, the rewriting converts:
 ``<url>`` -> ``<pywb host>/<coll>/<timestamp><modifier>/<url>``
 
 For example, the ``http://example.com/`` might be
-rewritten as ``http://localhost:8080/my-coll/2017mp_/http://example.com/``
+rewritten as ``http://localhost:8087/my-coll/2017mp_/http://example.com/``
 
 The rewritten url 'prefixes' the pywb host, the collection, requested datetime (timestamp) and type modifier
 to the actual url. The result is an 'archival url' which contains the original url and additional information about the archive and timestamp.

@@ -12,7 +12,7 @@ import redis
 import shutil
 
 def main():
-    upstream_url = 'http://localhost:8080'
+    upstream_url = 'http://localhost:8087'
 
     target = tempfile.mkdtemp(prefix='tmprec') + '/'
 

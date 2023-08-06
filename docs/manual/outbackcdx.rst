@@ -13,7 +13,7 @@ Adding CDX to OutbackCDX
 
 To set up OutbackCDX, please follow the instructions on the `OutbackCDX README <https://github.com/nla/outbackcdx>`_.
 
-Since pywb also uses the default port 8080, be sure to use a different port for OutbackCDX, eg. ``java -jar outbackcdx*.jar -p 8084``.
+Since pywb also uses the default port 8087, be sure to use a different port for OutbackCDX, eg. ``java -jar outbackcdx*.jar -p 8084``.
 
 OutbackCDX can generally ingest existing CDX used in OpenWayback simply by POSTing to OutbackCDX at a new index endpoint.
 

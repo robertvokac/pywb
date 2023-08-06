@@ -66,7 +66,7 @@ class TestXmlQueryIndexSource(BaseTestClass):
         super(TestXmlQueryIndexSource, cls).teardown_class()
 
     def do_query(self, params):
-        return SimpleAggregator({'source': XmlQueryIndexSource('http://localhost:8080/path')})(params)
+        return SimpleAggregator({'source': XmlQueryIndexSource('http://localhost:8087/path')})(params)
 
     @patch('pywb.warcserver.index.indexsource.requests.sessions.Session.get', mock_get)
     def test_exact_query(self):
@@ -78,7 +78,7 @@ com,example)/ 20180112200243 example.warc.gz
 com,example)/ 20180216200300 example.warc.gz"""
         assert(key_ts_res(reslist) == expected)
         assert(errs == {})
-        assert query_url == 'http://localhost:8080/path?q=limit%3A100+type%3Aurlquery+url%3Ahttp%253A%252F%252Fexample.com%252F'
+        assert query_url == 'http://localhost:8087/path?q=limit%3A100+type%3Aurlquery+url%3Ahttp%253A%252F%252Fexample.com%252F'
         assert reslist[0]['length'] == '123'
         assert 'length' not in reslist[1]
 
@@ -92,7 +92,7 @@ com,example)/some/path 20180216200300 example.warc.gz"""
         assert(key_ts_res(res) == expected)
         assert(errs == {})
 
-        assert query_url == 'http://localhost:8080/path?q=type%3Aurlquery+url%3Ahttp%253A%252F%252Fexample.com%252Fsome%252Fpath'
+        assert query_url == 'http://localhost:8087/path?q=type%3Aurlquery+url%3Ahttp%253A%252F%252Fexample.com%252Fsome%252Fpath'
 
 
     @patch('pywb.warcserver.index.indexsource.requests.sessions.Session.get', mock_get)

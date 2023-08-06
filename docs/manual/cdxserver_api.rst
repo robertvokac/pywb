@@ -16,7 +16,7 @@ The :ref:`warcserver` component uses this same api internally to perform all ind
 
 For example, the following query might return the first 10 results from host ``http://example.com/*`` where the mime type is text/html::
 
-  http://localhost:8080/coll/cdx?url=http://example.com/*&page=1&filter=mime:text/html&limit=10
+  http://localhost:8087/coll/cdx?url=http://example.com/*&page=1&filter=mime:text/html&limit=10
 
 
 By default, the api endpoint is available at ``/<coll>/cdx`` for a collection named ``<coll>``.
@@ -36,7 +36,7 @@ API Reference
 ^^^^^^^
 
 | The only required parameter to the cdx server api is the url, ex:
-| ``http://localhost:8080/coll/cdx?url=example.com``
+| ``http://localhost:8087/coll/cdx?url=example.com``
 
 will return a list of captures for ‘example.com’ in the collection
 ``coll`` (see above regarding per-collection api endpoints).

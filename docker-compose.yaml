@@ -4,7 +4,7 @@ services:
   pywb:
     build: .
     ports:
-        - 8080:8080
+        - 8087:8087
     volumes:
         - ./config.yaml:/webarchive/config.yaml
         - ./sample_archive/:/webarchive/sample_archive/
